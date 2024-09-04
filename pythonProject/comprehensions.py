@@ -73,21 +73,30 @@ for numb in nums2:
 	my_set.add(numb)
 print(my_set)
 """
-my_set=set()
-my_set={numb for numb in nums2}
-print(my_set)
+
+my_set2={numb for numb in nums2}
+print(my_set2)
 
 """
 GENERATOR EXPRESSIONS
 """
 #I want to yield 'n*n' for each 'n' in nums
-nums3=[1,2,3,4,5,6,7]
+"""
+
 def gen_func(nums3):
 	for n in nums3:
 		yield n*n
 
-my_list_gen=list(gen_func(nums3))
-print(my_list_gen)
+my_list_gen=gen_func(nums3)
+for i in my_list_gen:
+	print(i)
+"""
+nums3=[1,2,3,4,5,6,7]
 
+my_gen_expr= (n*n for n in nums3)
+print(my_gen_expr) #creates a generator in memory and prints its address
+#doesnt show or generate the actual list* we want unless we iterate over the geenrator
+for i in my_gen_expr:
+	print(i)
 
 
